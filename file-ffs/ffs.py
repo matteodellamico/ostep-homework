@@ -536,12 +536,13 @@ class file_system:
             max_power = data_power
         
         while max_power >= 0:
-            print('     ', end='') # spacing before inode print out
+            print(' ' * len("group "), end='') # spacing before inode print out
             if inode_power >= max_power:
                 self.do_numeric_header(max_power, self.inodes_per_group)
             else:
                 out_str = ' ' * self.inodes_per_group
                 print(out_str, end='')
+            print(' ', end='') # space between inode and data print out
 
             if data_power >= max_power:
                 self.do_numeric_header(max_power, self.blocks_per_group)
